@@ -1,8 +1,10 @@
+import css from "./Header.module.css";
 const Header = () => {
     return (
-        <header>
+        <header className="header">
             <div>Logo</div>
-            <nav>
+            <p className={css.title}>Header</p>
+            <nav className="nav">
                 <ul>
                     <li>Home</li>
                     <li>About</li>

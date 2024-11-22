@@ -2,7 +2,7 @@ import Header from "./Header/Header";
 import List from "./List/List";
 import Message from "./Message/Message";
 import Modal from "./Modal/Modal";
-
+import "../index.css";
 const App = () => {
   const isOnline = false;
   const isLoading = false;

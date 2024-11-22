@@ -1,0 +1,28 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  justify-content: space-between;
+  background-color: bisque;
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+  }
+  & li {
+    cursor: pointer;
+    color: orange;
+    &:hover {
+      color: red;
+    }
+  }
+}
