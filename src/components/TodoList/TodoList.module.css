@@ -1,0 +1,67 @@
+.todoList {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 20px auto;
+}
+
+.input {
+  width: 200px;
+  height: 30px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 20px;
+}
+
+.button {
+  width: 100px;
+  height: 30px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: first baseline;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Розподіляє елементи з рівними проміжками */
+  width: 100%;
+  padding: 5px 0; /* Додає трохи простору між елементами */
+  border-bottom: 1px solid #75f60b; /* Розділювальна лінія між елементами */
+}
+
+.deadline {
+  color: red;
+  margin-left: 15px;
+  margin-left: auto;
+}
+
+.delete {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  /* margin-left: auto; Притискає кнопку до правого краю */
+  background-color: #4de7ff;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.delete:hover {
+  background-color: #1a1eff; /* Робить кнопку темнішою при наведенні */
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}

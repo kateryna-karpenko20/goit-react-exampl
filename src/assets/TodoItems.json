@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "task": "Buy groceries",
+    "completed": false,
+    "deadline": "2024-11-25"
+  },
+  {
+    "id": 2,
+    "task": "Finish React project",
+    "completed": false,
+    "deadline": "2024-11-30"
+  },
+  {
+    "id": 3,
+    "task": "Call mom",
+    "completed": true,
+    "deadline": null
+  },
+  {
+    "id": 4,
+    "task": "Schedule a dentist appointment",
+    "completed": false,
+    "deadline": "2024-12-05"
+  },
+  {
+    "id": 5,
+    "task": "Read 10 pages of a book",
+    "completed": true,
+    "deadline": null
+  },
+  {
+    "id": 6,
+    "task": "Go for a run",
+    "completed": false,
+    "deadline": "2024-11-24"
+  },
+  {
+    "id": 7,
+    "task": "Prepare presentation for work",
+    "completed": false,
+    "deadline": "2024-12-01"
+  },
+  {
+    "id": 8,
+    "task": "Clean the house",
+    "completed": true,
+    "deadline": null
+  }
+]

@@ -1,5 +1,5 @@
 {
-  "name": "goit-react-hw-01",
+  "name": "goit-react-exampl",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,8 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "modern-normalize": "^3.0.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-icon": "^1.0.0",
+    "react-icons": "^5.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

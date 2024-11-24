@@ -2,3 +2,8 @@
   color: red;
   margin: 10px;
 }
+
+.secondTitle {
+  font-weight: bold;
+  font-style: italic;
+}
