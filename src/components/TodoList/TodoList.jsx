@@ -32,7 +32,7 @@ export const TodoList = () => {
     return (
         <div className={css.todoList}>
             <div>
-                <i nput
+                <input
                     className={css.input}
                     type="text"
                     value={newTodo}

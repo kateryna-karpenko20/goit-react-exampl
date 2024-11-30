@@ -67,6 +67,8 @@ const App = () => {
       <Counter />
       <ColorPicker />
       <TodoList />
+      <h2>Заняття 2-2</h2>
+      
     </div>
   );
 };

@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import css from "./Counter.module.css";
 
 export const Counter = () => {
   const [counter, setCounter] = React.useState(0);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(1); 
   // 1- значення перемінної counter, 2- функція яка змінює значення перемінної counter та показує її після зміни, а useState повертає значення перемінної counter та втановлює початкове значення перемінної counter 
+
+  useEffect(() => {console.log(`Counter was changed. Current value: ${counter}`)}, [counter]);
+// useEffect це функція, яка виконується при зміні значення перемінної counter, вона має 2 параметри, перший - фукція, другий - масив залежностей
+
+  useEffect(() => {console.log(`step was changed. Current value: ${step}`)}, [step]);
+  
+  useEffect(() => {console.log("Counter was changed.")}, [counter, step]);
+
+
   const handlePlusClick = () => {
     // setCounter(counter + 1);
     // setCounter((prevCounter) => prevCounter + 1);              Так як код асинхроний, а потрібно воконати декілька однакових запитів, при звичайному запиті отримує лише збільшення на 1, навіть якщо використовується  setCounter(counter + 1) 3 рази, для кода це вигладає як 0+1 0+1 0+1, тому використовується prevCounter(посилання на counter в даний момент часу, і новий не виконається поки не виконаеться попередній і значення не зміниться), і можемо повторювати запит хоч 5 разів і він буде працювати правильно, тобто послідовно 0+1 1+1 2+1 3+1 4+1
