@@ -4,8 +4,8 @@ const UncontrolledForms = () => {
 const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-    console.log(form);
-    console.log(form.elements);
+    // console.log(form);
+    // console.log(form.elements);
     const userName = form.elements.name.value;
     const userEmail = form.elements.email.value;
     const userPassword = form.elements.password.value;
