@@ -12,6 +12,9 @@ import casper from '../assets/casper.jpg'
 import { Counter } from "./Counter/Counter";
 import { ColorPicker } from "./ColorPicker/ColorPicker";
 import { TodoList } from "./TodoList/TodoList";
+import Vote from "./Vote/Vote";
+import UncontrolledForms from "./Forms/UncontrolledForms";
+import Forms from "./Forms/Forms";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,6 +100,10 @@ const App = () => {
         </Modal>
       )}
       <TodoList />
+      <Vote />
+      <h2>Заняття 3</h2>
+      < UncontrolledForms />
+<Forms />
     </div>
   );
 };
