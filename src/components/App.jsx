@@ -96,6 +96,7 @@ const App = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sapiente unde dolorum voluptate expedita debitis recusandae, incidunt iure repudiandae cumque neque doloremque magni culpa illum quod earum repellendus voluptatum veniam!
         </Modal>
       )}
+      <TodoList />
     </div>
   );
 };
