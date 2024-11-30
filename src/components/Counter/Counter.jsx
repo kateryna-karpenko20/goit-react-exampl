@@ -5,13 +5,13 @@ export const Counter = () => {
   const [counter, setCounter] = React.useState(0);
   const [step, setStep] = useState(1); 
   // 1- значення перемінної counter, 2- функція яка змінює значення перемінної counter та показує її після зміни, а useState повертає значення перемінної counter та втановлює початкове значення перемінної counter 
-
+  
   useEffect(() => {console.log(`Counter was changed. Current value: ${counter}`)}, [counter]);
 // useEffect це функція, яка виконується при зміні значення перемінної counter, вона має 2 параметри, перший - фукція, другий - масив залежностей
 
   useEffect(() => {console.log(`step was changed. Current value: ${step}`)}, [step]);
   
-  useEffect(() => {console.log("Counter was changed.")}, [counter, step]);
+  useEffect(() => {console.log("Counter or step was changed.")}, [counter, step]);
 
 
   const handlePlusClick = () => {
@@ -21,7 +21,7 @@ export const Counter = () => {
   }
   const handleMinusClick = () => {
     // setCounter(counter - 1);
-    setCounter(prev => prev - step);
+    setCounter(prev => prev - step); 
   }
   const handleResetClick = () => {
     setCounter(0);  //Скидає значення counter до 0
