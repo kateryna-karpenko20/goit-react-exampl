@@ -6,7 +6,6 @@ import Modal from "./Modal/Modal";
 import Section from "./Section/Section";
 import Footer from "./Footer/Footer"; 
 import "../index.css";
-import clsx from "clsx";
 import 'modern-normalize'
 import casper from '../assets/casper.jpg'
 import { Counter } from "./Counter/Counter";
@@ -15,6 +14,8 @@ import { TodoList } from "./TodoList/TodoList";
 import Vote from "./Vote/Vote";
 import UncontrolledForms from "./Forms/UncontrolledForms";
 import Forms from "./Forms/Forms";
+import UserId from "./UserId/UserId";
+import OrderForm from "./OrderForm/OrderForm";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -103,7 +104,10 @@ const App = () => {
       <Vote />
       <h2>Заняття 3</h2>
       < UncontrolledForms />
-<Forms />
+      <Forms />
+      <UserId />
+      <h2>Заняття 4 Formik</h2>
+      <OrderForm />
     </div>
   );
 };
