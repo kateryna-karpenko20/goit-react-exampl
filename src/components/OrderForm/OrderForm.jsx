@@ -4,7 +4,7 @@ import css from './OrderForm.module.css';
 const OrderForm = () => {
   const handleSubmit = (values, options) => {   // values: об'єкт, що містить значення всіх полів форми.  options: додаткові параметри, що можуть бути передані під час подання форми
     console.log(values);
-    console.log(options);
+    options.resetForm();
   };
 
   const initialValues = { username: '', tel: '', email: '', petType:'', gender: '', decire: '', agree: false };       // initialValues: об'єкт, що містить початкові значення всіх полів форми.
