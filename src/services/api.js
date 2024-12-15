@@ -13,3 +13,8 @@ export const fetchUsers = async () => { // Додано `()`
   const { data } = await axios.get(`https://dummyjson.com/users`);
   return data.users; // Повертає масив користувачів
 };
+
+export const fetchUsersById = async id => { // Додано `()`
+  const { data } = await axios.get(`https://dummyjson.com/users/${id}`);
+  return data; // Повертає об'єкт користувача
+};
