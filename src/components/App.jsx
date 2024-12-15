@@ -28,6 +28,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import Team from "./NesterRoutes/Team";
 import Aim from "./NesterRoutes/Aim";
 import Job from "./NesterRoutes/Job";
+import Users from "../pages/Users/Users";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -166,7 +167,8 @@ const App = () => {
         <h2>Заняття 5-1 Router</h2>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />}>
+          <Route path="/users" element={<Users />} />
+          <Route path="/about" element={<About />} >
             <Route path="team" element={<Team />} />
             <Route path="aim" element={<Aim />} />
             <Route path="job" element={<Job />} />
