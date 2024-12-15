@@ -40,19 +40,20 @@
 
 
 
-
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { fetchUsersById } from '../../services/api'; // Використовуємо нову функцію для отримання конкретного користувача
+import { Link, Outlet, useParams } from 'react-router-dom';
+import { fetchUsersById } from '../../services/api';
+
 
 const UserDetails = () => {
     const { userId } = useParams();
-    const [user, setUser] = useState(null); // Виправлено синтаксис useState
+    const [user, setUser] = useState(null);
+    const [showInfo, setShowInfo] = useState(false); // Стан для відображення інформації
 
     useEffect(() => {
         const getData = async () => {
             try {
-                const data = await fetchUsersById(userId); // Отримуємо дані конкретного користувача
+                const data = await fetchUsersById(userId);
                 setUser(data);
             } catch (error) {
                 console.error('Error fetching user:', error);
@@ -61,25 +62,39 @@ const UserDetails = () => {
         getData();
     }, [userId]);
 
-    // Перевірка, чи дані завантажені
     if (!user) {
         return <p>Loading...</p>;
     }
 
-    return (
+    // Інформація про користувача
+    const info = (
         <div>
-            {/* Відображаємо деталі користувача */}
-            <img src={user.image} alt="avatar" />
-            <h2>FullName: {user.firstName} {user.lastName}</h2> {/* Виправлено lastNme */}
             <p>Email: {user.email}</p>
             <p>Phone: {user.phone}</p>
             <p>Age: {user.age}</p>
             <p>Gender: {user.gender}</p>
-            <p>Country: {user.address.country}</p>
-            <p>City: {user.address.city}</p>
-            <p>Street: {user.address.address}</p>
+            <p>Country: {user.address?.country || 'N/A'}</p>
+            <p>City: {user.address?.city || 'N/A'}</p>
+            <p>Street: {user.address?.address || 'N/A'}</p>
             <p>Weight: {user.weight}</p>
             <p>Height: {user.height}</p>
+        </div>
+    );
+
+    return (
+        <div>
+            <img src={user.image} alt="avatar" />
+            <h2>FullName: {user.firstName} {user.lastName}</h2>
+            <nav>
+                {/* Лінк для відображення info */}
+                <button style={{marginRight: '10px', border: 'none', background: 'none'}} onClick={() => setShowInfo(prev => !prev)}>
+                    {showInfo ? 'Hide Info' : 'Show Info'}
+                </button>
+                <Link to="posts">Show posts</Link>
+            </nav>
+            <Outlet />
+            {/* Відображення інформації при натисканні на лінк */}
+            {showInfo && info}
         </div>
     );
 };

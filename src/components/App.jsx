@@ -30,6 +30,7 @@ import Aim from "./NesterRoutes/Aim";
 import Job from "./NesterRoutes/Job";
 import Users from "../pages/Users/Users";
 import UserDetails from "../pages/UserDetails/UserDetails";
+import Posts from "./NesterRoutes/Posts";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -169,7 +170,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/users/:userId" element={<UserDetails />} />
+          <Route path="/users/:userId" element={<UserDetails />} >
+            <Route path="info" element={<UserDetails />} />
+            <Route path="posts" element={<Posts />} />
+          </Route>
           <Route path="/about" element={<About />} >
             <Route path="team" element={<Team />} />
             <Route path="aim" element={<Aim />} />
