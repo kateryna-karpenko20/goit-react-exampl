@@ -21,6 +21,13 @@ import Articles from "./Articles/Articles"
 import SearchBar from "./SearchBar/SearchBar";
 import Loader from "./Loader/Loader";
 import { fetchArticles } from "../services/api";
+import { Routes, Route } from "react-router-dom";
+import Home from "../pages/Home/Home";
+import About from "../pages/About/About";
+import NotFound from "../pages/NotFound/NotFound";
+import Team from "./NesterRoutes/Team";
+import Aim from "./NesterRoutes/Aim";
+import Job from "./NesterRoutes/Job";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -156,6 +163,16 @@ const App = () => {
         </div>
         <h2>Заняття 4-2 useMemo i useRef</h2>
         <Counter />
+        <h2>Заняття 5-1 Router</h2>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />}>
+            <Route path="team" element={<Team />} />
+            <Route path="aim" element={<Aim />} />
+            <Route path="job" element={<Job />} />
+          </Route>
+          <Route path="*" element={<NotFound />} /> {/* якщо не існує сторінки чи посилання */}
+        </Routes>
       </div>
     );
   };

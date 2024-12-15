@@ -1,3 +1,8 @@
+body {
+  margin: 0; /* Забрати стандартні відступи браузера */
+  padding-top: 80px; /* Відступ, рівний висоті хедера */
+}
+
 ul {
   list-style: none;
   padding: 0;

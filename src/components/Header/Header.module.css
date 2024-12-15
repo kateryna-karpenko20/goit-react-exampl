@@ -1,9 +1,36 @@
-.title {
-  color: red;
-  margin: 10px;
+.header {
+  position: fixed; /* Фіксує хедер на верху */
+  top: 0; /* Прив'язує хедер до верхньої частини сторінки */
+  left: 0; /* Розтягує хедер на всю ширину */
+  width: 100%; /* Займає всю ширину сторінки */
+  z-index: 1000; /* Розміщує хедер над іншими елементами */
+  background-color: #ffffff; /* Фон хедера */
+  border-bottom: 1px solid #ccc; /* Лінія внизу хедера */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тінь для стилю */
+  padding: 10px 20px; /* Відступи всередині хедера */
+  display: flex; /* Робить вміст хедера горизонтальним */
+  align-items: center; /* Вирівнює елементи по вертикалі */
+  justify-content: space-between; /* Розділяє елементи по краях */
 }
 
-.secondTitle {
-  font-weight: bold;
-  font-style: italic;
+nav {
+  display: flex; /* Робить елементи навігації горизонтальними */
+  gap: 20px; /* Відстань між елементами навігації */
+  font-size: 1.5rem; /* Розмір тексту навігації */
+}
+
+nav a {
+  color: #000; /* Колір тексту посилань */
+  text-decoration: none; /* Прибирає підкреслення */
+}
+
+nav a.active {
+  text-decoration: underline; /* Підкреслює активне посилання */
+  color: green; /* Зелений колір для активного посилання */
+}
+
+.img {
+  border-radius: 50%; /* Робить зображення круглим */
+  width: 50px; /* Ширина зображення */
+  height: 50px; /* Висота зображення */
 }
