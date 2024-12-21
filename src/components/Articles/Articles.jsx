@@ -1,18 +1,28 @@
-import React from 'react';
+import React from 'react'; // Імпортуємо React, щоб використовувати JSX та компоненти React.
 
-const Articles = ({ articles }) => {
-  if (!articles || articles.length === 0) {
-    return <p>No articles found.</p>; // Graceful fallback for empty data
+const Articles = ({ articles }) => {  // Оголошуємо компонент Articles, який приймає пропс 'articles' (масив статей).
+  // Компонент отримує 'articles' як вхідні дані (пропси). Ці дані будуть використані для відображення списку статей.
+
+  if (!articles || articles.length === 0) { // Перевірка, чи масив 'articles' порожній або не існує.
+    // Якщо масив статей відсутній або порожній, ми виводимо повідомлення, що не знайдено статей.
+    return <p>No articles found.</p>; // Якщо масив порожній або не існує, показуємо повідомлення, що статей не знайдено.
   }
 
-  return (
-    <div>
-      <ul>
-        {articles.map(post => (
-          <li key={post.objectID}>
-            <a href={post.url} target="_blank" rel="noopener noreferrer">
-              {post.title || "Untitled Article"} {/* Handle missing titles */}
-            </a>
+  return (  // Якщо масив не порожній, повертаємо JSX для рендерингу списку статей.
+    <div>  {/* Контейнер для списку статей. Він дозволяє обгортати елементи в HTML-структуру.*/}
+      <ul>  {/* Початок списку (HTML тег для упорядкованого чи неупорядкованого списку).*/}
+        {articles.map(post => (  // Використовуємо метод map, щоб пройти по кожній статті (post) з масиву articles.
+          // Для кожної статті в масиві articles ми створюємо елемент списку <li>.
+
+          <li key={post.objectID}>  {/* Кожен елемент списку має унікальний ключ (key), щоб допомогти React ефективно обробляти та оновлювати елементи.*/}
+            {/* Використовуємо objectID статті як ключ, оскільки воно є унікальним для кожної статті. */}
+            
+            <a href={post.url} target="_blank" rel="noopener noreferrer">  
+            {/* Створюємо посилання на статтю. Відкривається в новій вкладці завдяки target="_blank".
+            Атрибут rel="noopener noreferrer" потрібен для безпеки та запобігання доступу до оригінального документа. */}
+              
+              {post.title || "Untitled Article"}  {/* Виводимо заголовок статті. Якщо заголовок відсутній (null або undefined), виводимо текст "Untitled Article". */}
+            </a> 
           </li>
         ))}
       </ul>
@@ -20,4 +30,4 @@ const Articles = ({ articles }) => {
   );
 };
 
-export default Articles;
+export default Articles;  // Експортуємо компонент Articles, щоб його можна було використовувати в інших частинах програми.

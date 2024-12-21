@@ -1,35 +1,44 @@
-import { Field, Formik, Form } from 'formik';
-import css from './OrderForm.module.css';
+import { Field, Formik, Form } from 'formik'; // Імпортуємо необхідні компоненти з бібліотеки Formik
+import css from './OrderForm.module.css'; // Імпортуємо CSS-стилі для форми
 
 const OrderForm = () => {
-  const handleSubmit = (values, options) => {   // values: об'єкт, що містить значення всіх полів форми.  options: додаткові параметри, що можуть бути передані під час подання форми
-    console.log(values);
-    options.resetForm();
+  // Обробник події submit форми. Отримує значення полів форми та додаткові параметри.
+  const handleSubmit = (values, options) => {   
+    console.log(values); // Виводимо значення полів форми в консоль
+    options.resetForm(); // Очищаємо форму після відправлення
   };
 
-  const initialValues = { username: '', tel: '', email: '', petType:'', gender: '', decire: '', agree: false };       // initialValues: об'єкт, що містить початкові значення всіх полів форми.
-
+  // Початкові значення для кожного поля форми
+  const initialValues = { 
+    username: '',  // Ім'я
+    tel: '',       // Телефон
+    email: '',     // Емейл
+    petType: '',   // Тип улюбленця
+    gender: '',    // Стать
+    decire: '',    // Побажання
+    agree: false,  // Згода з правилами
+  };       
 
   return (
     <div className={css.wrapper}>
-          <Formik onSubmit={handleSubmit} initialValues={initialValues}>        
-              {/* Formik — це компонент, який забезпечує управління станом форми і автоматичне оброблення подій */}
+      {/* Formik забезпечує управління станом форми та автоматичне оброблення подій */}
+      <Formik onSubmit={handleSubmit} initialValues={initialValues}>        
         {() => (
           <Form className={css.form}>
-               
-           <label className={css.label}>
+            {/* Поле для введення імені */}
+            <label className={css.label}>
               <span>Ім'я</span>
               <Field
                 className={css.input}
                 type="text"
                 placeholder="введіть ваше ім'я"
-                name="username"
-            />
-           {/* Field — це спеціальний компонент від Formik, який зв'язує інпут з Formik-станом. Завдяки цьому Formik автоматично керує значенням цього поля, а також зберігає і відправляє його на сервер. */}
-        
+                name="username" // Назва поля повинна відповідати ключу в initialValues
+              />
+              {/* Field — це спеціальний компонент Formik, який автоматично керує значенням цього поля */}
             </label>
-    
-               <label className={css.label}>
+
+            {/* Поле для введення телефону */}
+            <label className={css.label}>
               <span>Телефон</span>
               <Field
                 className={css.input}
@@ -37,8 +46,9 @@ const OrderForm = () => {
                 placeholder="введіть ваш номер"
                 name="tel"
               />
-              </label>
+            </label>
             
+            {/* Поле для введення емейлу */}
             <label className={css.label}>
               <span>Емейл</span>
               <Field
@@ -47,9 +57,10 @@ const OrderForm = () => {
                 placeholder="введіть ваш емейл"
                 name="email"
               />
-                </label>
+            </label>
         
-<label className={css.label}>
+            {/* Поле для вибору типу улюбленця */}
+            <label className={css.label}>
               <span>Тип улюбленця</span>
               <Field as='select' className={css.input} name='petType'>
                 <option value="" disabled>Можливо це </option>
@@ -59,14 +70,15 @@ const OrderForm = () => {
               </Field>
             </label>
 
-              <div >
-             <span style={{ fontWeight: "Bold" }}>Стать:</span>
+            {/* Поля для вибору статі (радіо кнопки) */}
+            <div>
+              <span style={{ fontWeight: "bold" }}>Стать:</span>
               <label className={css.labelRadio}>
                 <Field
                   type="radio"
                   value="male"
                   className={css.radio}
-                  name="gender"
+                  name="gender" // Спільне ім'я для обох радіо-кнопок, щоб вибір був взаємозалежним
                 />
                 <span>Хлопчик</span>
               </label>
@@ -82,26 +94,28 @@ const OrderForm = () => {
               </label>
             </div>
 
+            {/* Поле для вводу побажань */}
             <label className={css.label}>
               <span>Побажання</span>
               <Field
-                as="textarea"
+                as="textarea"  // Використовуємо textarea для вводу тексту
                 className={css.input}
                 placeholder="введіть побажання"
                 name="decire"
               />
             </label>
 
+            {/* Чекбокс для підтвердження згоди */}
             <label className={css.labelRadio}>
-              
               <Field
                 className={css.checkbox}
                 type="checkbox"
-                name="agree"
-                          />
-            <span>Я приймаю всі правила платформи</span>
+                name="agree" // Назва поля для згоди
+              />
+              <span>Я приймаю всі правила платформи</span>
             </label>
 
+            {/* Кнопка для відправки форми */}
             <button type="submit">Замовити</button>
           </Form>
         )}

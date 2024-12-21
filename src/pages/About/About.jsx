@@ -1,22 +1,47 @@
-import React, { useEffect } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+// Імпортуємо React та необхідні компоненти з бібліотеки react-router-dom
+import React, { useState, useEffect } from 'react'; // useState і useEffect - це спеціальні функції для роботи зі станом та ефектами
+import { NavLink, Outlet } from 'react-router-dom'; // NavLink - для навігації по сторінках, Outlet - для відображення вкладених компонентів
 
+// Оголошуємо компонент About, який буде відображати інформацію про нашу сторінку "Про нас"
 const About = () => {
-    useEffect (() => {
-      document.title = "Best coders | About"
-    })
-  return (
-    <div>
-      <h2>About page</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus exercitationem necessitatibus ab iusto natus provident facere at eveniet nostrum alias perspiciatis obcaecati, architecto corrupti, debitis facilis sed atque labore veniam!</p>
-      <nav>
-        <NavLink to="team">Team</NavLink>
-        <NavLink to="aim">Aim</NavLink>
-        <NavLink to="job">Job</NavLink>
-      </nav>
-      <Outlet/>
-    </div>
-  )
-}
 
-export default About
+    // Використовуємо хук useState для створення змінної для лічильника переглядів сторінки
+    const [viewCount, setViewCount] = useState(0); // Початкове значення лічильника - 0
+
+    // Використовуємо хук useEffect для виконання певної дії при завантаженні сторінки
+    useEffect(() => {
+        // Оновлюємо заголовок сторінки кожного разу, коли цей компонент буде відображений
+        document.title = "Best coders | About";
+
+        // Оновлюємо лічильник переглядів сторінки кожного разу, коли компонент буде змонтований
+        setViewCount(prevCount => prevCount + 1); // Кожен раз збільшуємо лічильник на 1
+    }, []); // Пустий масив [] означає, що цей код виконується лише один раз при першому завантаженні компонента
+
+    // Повертаємо JSX - це розмітка, яка відображається на сторінці
+    return (
+        <div> {/* Обгортка для всього контенту сторінки */}
+            <h2>About page</h2> {/* Заголовок сторінки, який відображається на екрані */}
+            <p>
+                {/* Описова частина сторінки, де можна розмістити інформацію про проект або організацію */}
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus exercitationem necessitatibus ab iusto natus provident facere at eveniet nostrum alias perspiciatis obcaecati, architecto corrupti, debitis facilis sed atque labore veniam!
+            </p>
+
+            {/* Показуємо кількість переглядів цієї сторінки */}
+            <p>Page views: {viewCount}</p> {/* Виводимо поточну кількість переглядів сторінки */}
+
+            {/* Блок з навігацією */}
+            <nav> {/* <nav> - це тег для групи посилань на інші сторінки */}
+                {/* Створюємо посилання для переходу на різні підрозділи цієї сторінки */}
+                <NavLink to="team">Team</NavLink> {/* Посилання на розділ "Team" */}
+                <NavLink to="aim">Aim</NavLink> {/* Посилання на розділ "Aim" */}
+                <NavLink to="job">Job</NavLink> {/* Посилання на розділ "Job" */}
+            </nav>
+
+            {/* Компонент Outlet є місцем, де відображатиметься контент для підсторінок */}
+            <Outlet /> {/* В залежності від того, на який підрозділ перейшов користувач, тут буде відображено відповідний компонент */}
+        </div>
+    );
+};
+
+// Експортуємо компонент, щоб його можна було використовувати в інших частинах додатку
+export default About;

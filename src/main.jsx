@@ -1,13 +1,31 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './components/App'
-import { BrowserRouter } from 'react-router-dom'
+import { StrictMode } from 'react'; 
+// Імпортуємо компонент StrictMode з бібліотеки React. StrictMode допомагає виявляти потенційні проблеми в коді під час розробки.
 
-createRoot(document.getElementById('root')).render(
+import { createRoot } from 'react-dom/client'; 
+// Імпортуємо функцію createRoot з бібліотеки react-dom/client. Вона використовується для рендерингу нашого React-додатку в браузері.
+
+import './index.css'; 
+// Імпортуємо файл CSS для стилів, які застосовуються до нашого додатку. Це дозволяє змінити вигляд елементів на сторінці.
+
+import App from './components/App'; 
+// Імпортуємо компоненту App з файлу App.js. Це основний компонент нашого додатку.
+
+import { BrowserRouter } from 'react-router-dom'; 
+// Імпортуємо компонент BrowserRouter з бібліотеки react-router-dom. Він відповідає за маршрутизацію в додатку, тобто за переключення між сторінками.
+
+createRoot(document.getElementById('root')).render( 
+  // Функція createRoot використовує елемент з ідентифікатором 'root' (це корінь нашої сторінки, зазвичай div з id="root").
+  // Вона викликає метод render, щоб вивести наш додаток у цей елемент на сторінці.
+  
   <BrowserRouter>
-  <StrictMode>
-<App />
+    {/* Вся наша програма буде знаходитися в BrowserRouter. Це дає можливість використовувати маршрути в додатку. */}
+
+    <StrictMode>
+      {/* StrictMode допомагає виявляти потенційні проблеми в коді, наприклад, застарілі методи або неправильне використання компонентів. */}
+      
+      <App />
+      {/* Виводимо основну компоненту додатку - App. Це наша головна компонента, яка містить інший контент і логіку додатку. */}
+
     </StrictMode>
-   </BrowserRouter>
-)
+  </BrowserRouter>
+);

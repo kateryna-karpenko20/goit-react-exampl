@@ -44,24 +44,30 @@ import CustomerInput from './CustomerInput'
 // Для каждого <CustomerInput /> назначается уникальный key, равный индексу текущего элемента. Это помогает React отличать компоненты друг от друга и оптимизировать рендеринг.
 // Этот код удобно использовать, когда вы хотите динамически отобразить несколько компонентов на основе количества (inputCount), например прислали 12 сраниц текста, пишешь pageCount = 12, і потом место інпута пишешь например кнопки, і віходит 12 кнопок по 1 на каждую страничку, также і со спіском.
 
+// Компонент UserId
 const UserId = () => {
-    const [inputCount, setInputCount] = useState(1); // Состояние для отслеживания количества инпутов
+    // useState створює стан для кількості інпутів
+    const [inputCount, setInputCount] = useState(1); // Стан для відстеження кількості інпутів (за замовчуванням 1)
 
     return (
         <div>
+            {/* Кнопка для збільшення кількості інпутів */}
             <button onClick={() => setInputCount((prev) => prev + 1)}>Add</button>
+            
+            {/* Кнопка для зменшення кількості інпутів. Перевірка, щоб кількість інпутів не ставала меншою за 1 */}
             <button onClick={() => setInputCount((prev) => (prev > 1 ? prev - 1 : 1))}>
                 Remove
             </button>
-            {/* Создаем несколько компонентов CustomerInput с уникальными inputId */}
-            {Array(inputCount)
-                .fill("")
-                .map((_, index) => (
-                    <CustomerInput key={index} inputId={index} />
+
+            {/* Створюємо масив інпутів на основі значення inputCount */}
+            {Array(inputCount) // Створюємо масив з довжиною inputCount
+                .fill("") // Заповнюємо масив порожніми рядками (це дозволяє працювати з методом .map())
+                .map((_, index) => ( // map виконується для кожного елемента масиву
+                    <CustomerInput key={index} inputId={index} /> // Створюємо компонент CustomerInput для кожного елемента масиву
                 ))}
         </div>
     );
 };
 
+// Експортуємо компонент
 export default UserId;
-
